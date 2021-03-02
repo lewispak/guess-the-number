@@ -2,17 +2,44 @@
 <html lang="en">
 <head>
     <title>Guess The Number</title>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- maybe need the above, maybe not -->
+    
     <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="script.js"></script>
-    
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 </head>
-<body>
-    
+<body class="text-center">
+    <!-- Navbar/ Header-->
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Guess The Number</a>
+    </nav>
+
+    <main>
+        <!-- Title -->
+        <h1 class="banner p-3"> 1.2.3. </h1>
+
+        <!-- Input Field -->
+        <div class="form-group">
+            <input id="number-guess" class="form-control form-control-lg" type="number" placeholder="What's your guess?">
+        </div>
+
+        <!-- Result Area -->
+        <div id="result">
+        </div>
+
+        <!-- Buttons -->
+        <button type="button" id="number-submit" class="btn btn-lg btn-secondary">Check Me</button>
+        <button type="button" id="restart-game" class="btn btn-lg btn-light">Restart</button>
+
+        <!-- Guess History Area -->
+        <div id="history">
+        </div>
+
+    </main>
 </body>
 </html>
