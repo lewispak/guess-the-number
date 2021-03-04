@@ -13,10 +13,6 @@ server.listen(port, () => {
 // 2. Set routes
 
 server.get('/', (req, res) => {
-    res.send('This working?!')
-})
-
-server.get('/test-html', (req, res) => {
-    const filename = path.join(__dirname, 'test.html')
+    const filename = path.join(__dirname, '/public/index.html')
     res.sendFile(filename)
 })
