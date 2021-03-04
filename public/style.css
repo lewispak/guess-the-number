@@ -1,4 +1,4 @@
-#number-guess, #result, #history {
+#result, #history {
     max-width: 400px;
     margin: 0 auto;
 }
@@ -11,4 +11,13 @@
     color: #ffd23f;
     font-size: 90px;
     font-family: sans-serif;
+}
+
+#number-guess {
+    width: 150px;
+}
+
+.form-group {
+    width: 80%;
+    display: none;
 }
