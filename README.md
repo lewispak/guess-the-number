@@ -1,1 +1,1 @@
-initial commit
+Guess The Number web game

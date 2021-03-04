@@ -1,0 +1,24 @@
+{
+  "name": "guess-the-number",
+  "version": "1.0.0",
+  "description": "guess the number web app game for demo purposes",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewispak/guess-the-number.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lewispak/guess-the-number/issues"
+  },
+  "homepage": "https://github.com/lewispak/guess-the-number#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
