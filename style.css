@@ -9,7 +9,7 @@
 
 .banner {
     color: #ffd23f;
-    font-size: 90px;
+    /* font-size: 20px; */
     font-family: sans-serif;
 }
 
@@ -18,6 +18,5 @@
 }
 
 .form-group {
-    width: 80%;
-    display: none;
+    width: 100%;
 }
