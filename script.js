@@ -55,13 +55,13 @@ function playGame() {
     let numberGuess = document.getElementById('number-guess').value
     console.log(numberGuess)
 
-  // Step 4:
-  
+    // Step 4:
+
     if (numberGuess > correctNumber) {
         console.log('too high')
     } else if (numberGuess < correctNumber) {
         console.log('too low')
-    } else {
+    } else if (numberGuess == correctNumber) {
         console.log('correct!')
     }
 }
