@@ -21,7 +21,14 @@ How to do:
 Get the game to generate a random number from 1 to 100 and save it to memory in a variable called randomNumber (correctNumber)
 2. Create function (playGame) that gets the value from user's input and save it to a variable numberGuess - DONE
 3. Generate a random number that can be used as the marker for all user guesses and inputs - DONE
-4. Figure out whether the user's input is too high, too low or correct - if else statements inside playGame funtion
+4. Figure out whether the user's input is too high, too low or correct - if else statements inside playGame funtion - DONE
+5. Move logic from playGame to another function so it does one thing - DONE
+6. Display results on page - too high, too low, correct - many different steps to this...
+    1. displayResults (insert functions here as opposed to being logged)
+    2. tooHigh, tooLow, correct ---> uses getDialog
+    3. getDialog = dialogType & text ---> which come from user input as arguments at the calling level e.g. getDialog('won', text) or getDialog('warning', text) - determines what's to be shown (warning or won message? = "Your guess is too high!" or "Your guess is too low" or "Awesome job, you got it!")
+    4. Back to tooHigh, tooLow, correct
+    5. Displays on page
 
 Start there for now...
 
@@ -54,10 +61,26 @@ Step 2: Create a function (playGame) that gets the value from user's input and s
 function playGame() {
     let numberGuess = document.getElementById('number-guess').value
     console.log(numberGuess)
+    displayResult(numberGuess)
 
     // Step 4:
 
+    // if (numberGuess > correctNumber) {
+    //     console.log('too high')
+    // } else if (numberGuess < correctNumber) {
+    //     console.log('too low')
+    // } else if (numberGuess == correctNumber) {
+    //     console.log('correct!')
+    // }
+}
+
+// Process = 1. listening to click, 2. Calling playGame function, 3. Getting value of user input, 4. Console.logging value of user input
+
+// Step 5: Move logic from playGame to another function so that checking the result and displaying it is its own function
+
+function displayResult(numberGuess) {
     if (numberGuess > correctNumber) {
+        showNumberAbove()
         console.log('too high')
     } else if (numberGuess < correctNumber) {
         console.log('too low')
@@ -65,8 +88,6 @@ function playGame() {
         console.log('correct!')
     }
 }
-
-// Process = 1. listening to click, 2. Calling playGame function, 3. Getting value of user input, 4. Console.logging value of user input
 
 /*
 
@@ -94,3 +115,24 @@ function getRandomNumber() {
 }
 
 // console.log(getRandomNumber)
+
+function getDialog(dialogType, text) {
+    let dialog
+    switch (dialogType) {
+        case 'warning':
+            dialog = "<div class='alert alert-warning' role='alert'>"
+            break
+        case 'won':
+            dialog = "<div class='alert alert-success' role='alert'>"
+            break
+    }
+    dialog += text
+    dialog += '</div>'
+    return dialog
+}
+
+function showNumberAbove() {
+    const text = 'Your guess is too high!'
+    let dialog = getDialog('warning', text)
+    document.getElementById('result').innerHTML = dialog
+}
