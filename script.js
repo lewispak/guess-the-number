@@ -41,9 +41,11 @@ Get the game to generate a random number from 1 to 100 and save it to memory in 
         5. Increment index = index+=1
         6. Concatenate list with closing ul tag
         7. Display history by using getElementById method and using the "history" HTML ID
-        6. Add to playGame function and test to see if it works
+        8. Add to playGame function and test to see if it works
     5. Reverse the order of the guesses that are being displayed by assigning index to guesses.length - 1 (starts from the end     andworks backwards) - don't forget to add while the index >= 0 and also decrement index as well (index-=1;)
-        .. Add to playGame function
+        1. Change index from 0 to guesses.length - 1
+        2. Change while(index<guesses.length) to while(index>=0)
+        3. Change index increment (index+=1) to decrement (index-=1)
 8. Create functionality to restart the game when the game has been won
 
 Start there for now...
@@ -209,18 +211,27 @@ function saveGuessHistory(guess) {
 
 function displayHistory() {
     // Step 7.4.2
-    let index = 0
+    // let index = 0
+
+    // Step 7.5.1
+    let index = guesses.length - 1
 
     // Step 7.4.3
     let list = "<ul class='list-group'>"
 
     // Step 7.4.4
 
-    while (index < guesses.length) {
+    // while (index < guesses.length) {
+
+    // Step 7.5.2
+    while (index >= 0) {
         list += "<li class='list-group-item'>" + 'You guessed ' + guesses[index] + '</li>'
 
         // Step 7.4.5
-        index += 1
+        // index += 1
+
+        // Step 7.5.3
+        index -= 1
     }
 
     // Step 7.4.6
