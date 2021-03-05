@@ -28,7 +28,7 @@ Start there for now...
 
 /*
 
-Step One: Create window.onload funtion to execute functions once html has loaded - e.g. playGame or initGame
+Step 1: Create window.onload funtion to execute functions once html has loaded - e.g. playGame or initGame
 function should get html element by ID and then add a click eventListener which executes function once executed
 On load, two event listeners occur - 1 = playGame, 2 = startGame/initGame
 
@@ -36,18 +36,33 @@ On load, two event listeners occur - 1 = playGame, 2 = startGame/initGame
 
 window.onload = function () {
     document.getElementById('number-submit').addEventListener('click', playGame)
-    document.getElementById('restart-game').addEventListener('click', initGame)
 }
 
 /*
 
-Step Two: Create a function (playGame) that gets the value from user's input and saves it to a variable called numberGuess
+Step 2: Create a function (playGame) that gets the value from user's input and saves it to a variable called numberGuess
 
 */
 
-function playGame () {
-  let numberGuess = document.getElementById('number-guess').value
-  console.log(numberGuess)
+function playGame() {
+    let numberGuess = document.getElementById('number-guess').value
+    console.log(numberGuess)
 }
 
 // Process = 1. listening to click, 2. Calling playGame function, 3. Getting value of user input, 4. Console.logging value of user input
+
+/*
+
+Step 3: Maybe this be the first step but this step is about the game generating a random number which is then saved and used as the marker for the user's guess
+
+*/
+
+// 1. Create getRandomNumber function that returns a random number
+
+function getRandomNumber() {
+    // 2. Have it return a random number
+    let randomNumber = Math.random()
+    console.log(randomNumber)
+}
+
+getRandomNumber()
