@@ -80,12 +80,14 @@ function playGame() {
 
 function displayResult(numberGuess) {
     if (numberGuess > correctNumber) {
-        showNumberAbove()
-        console.log('too high')
+        showNumberAbove() // Step 6.1
+        console.log('Your guess is too high!')
     } else if (numberGuess < correctNumber) {
-        console.log('too low')
+        showNumberBelow() // Step 6.1
+        console.log('Your guess is too low!')
     } else if (numberGuess == correctNumber) {
-        console.log('correct!')
+        showYouWon() // Step 6.1
+        console.log('Sweet! Your guess is correct')
     }
 }
 
@@ -116,6 +118,8 @@ function getRandomNumber() {
 
 // console.log(getRandomNumber)
 
+// Step 6.3
+
 function getDialog(dialogType, text) {
     let dialog
     switch (dialogType) {
@@ -131,8 +135,38 @@ function getDialog(dialogType, text) {
     return dialog
 }
 
+// Step 6.2
+
 function showNumberAbove() {
     const text = 'Your guess is too high!'
+
+    // Step 6.4
     let dialog = getDialog('warning', text)
+
+    // Step 6.5
+    document.getElementById('result').innerHTML = dialog
+}
+
+// Step 6.2
+
+function showNumberBelow() {
+    const text = 'Your guess is too low!'
+
+    // Step 6.4
+    let dialog = getDialog('warning', text)
+
+    // Step 6.5
+    document.getElementById('result').innerHTML = dialog
+}
+
+// Step 6.2
+
+function showYouWon() {
+    const text = 'Sweet! Your guess is correct'
+
+    // Step 6.4
+    let dialog = getDialog('won', text)
+
+    // Step 6.5
     document.getElementById('result').innerHTML = dialog
 }
