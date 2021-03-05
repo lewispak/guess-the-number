@@ -29,6 +29,22 @@ Get the game to generate a random number from 1 to 100 and save it to memory in 
     3. getDialog = dialogType & text ---> which come from user input as arguments at the calling level e.g. getDialog('won', text) or getDialog('warning', text) - determines what's to be shown (warning or won message? = "Your guess is too high!" or "Your guess is too low" or "Awesome job, you got it!")
     4. Back to tooHigh, tooLow, correct
     5. Displays on page
+7. Display guess history on page - multiple steps to this below...
+    1. Create an empty array that's available globally - can be called guesses = []
+    2. Create a function that pushes the user's guesses to the empty array
+    3. Add function to playGame so it executes once a click has happened and page has loaded
+    4. Display guess history using a function that does it
+        1. Create function
+        2. Create variable index - can just make it = 0 for now
+        3. Create variable list = "<ul class='list-group'>" which will be used to concatenate text to display results
+        4. Create while loop that concantenates text to display your guesses below buttons WHILE index < guesses.length
+        5. Increment index = index+=1
+        6. Concatenate list with closing ul tag
+        7. Display history by using getElementById method and using the "history" HTML ID
+        6. Add to playGame function and test to see if it works
+    5. Reverse the order of the guesses that are being displayed by assigning index to guesses.length - 1 (starts from the end     andworks backwards) - don't forget to add while the index >= 0 and also decrement index as well (index-=1;)
+        .. Add to playGame function
+8. Create functionality to restart the game when the game has been won
 
 Start there for now...
 
@@ -38,6 +54,10 @@ Start there for now...
 
 let correctNumber = getRandomNumber()
 console.log(correctNumber)
+
+// Step 7.1
+
+let guesses = []
 
 /*
 
@@ -62,6 +82,13 @@ function playGame() {
     let numberGuess = document.getElementById('number-guess').value
     console.log(numberGuess)
     displayResult(numberGuess)
+
+    // Step 7.3
+    saveGuessHistory(numberGuess) // Where numberGuess = the number that users input
+
+    // Step 7.5.6
+    displayHistory()
+    console.log(displayHistory)
 
     // Step 4:
 
@@ -169,4 +196,36 @@ function showYouWon() {
 
     // Step 6.5
     document.getElementById('result').innerHTML = dialog
+}
+
+// Step 7.2
+
+function saveGuessHistory(guess) {
+    guesses.push(guess)
+    console.log(guesses)
+}
+
+// Step 7.4.1
+
+function displayHistory() {
+    // Step 7.4.2
+    let index = 0
+
+    // Step 7.4.3
+    let list = "<ul class='list-group'>"
+
+    // Step 7.4.4
+
+    while (index < guesses.length) {
+        list += "<li class='list-group-item'>" + 'You guessed ' + guesses[index] + '</li>'
+
+        // Step 7.4.5
+        index += 1
+    }
+
+    // Step 7.4.6
+    list += '</ul>'
+
+    // Step 7.4.7
+    document.getElementById('history').innerHTML = list
 }
