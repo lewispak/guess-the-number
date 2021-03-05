@@ -47,6 +47,12 @@ Get the game to generate a random number from 1 to 100 and save it to memory in 
         2. Change while(index<guesses.length) to while(index>=0)
         3. Change index increment (index+=1) to decrement (index-=1)
 8. Create functionality to restart the game when the game has been won
+    1. Create initGame function to:
+        1. Reset correctNumber
+        2. Reset resultDisplay
+        3. Reset guesses array
+        4. Reset guess history display
+    2. Add initGame to window.onload function
 
 Start there for now...
 
@@ -71,6 +77,7 @@ On load, two event listeners occur - 1 = playGame, 2 = startGame/initGame
 
 window.onload = function () {
     document.getElementById('number-submit').addEventListener('click', playGame)
+    document.getElementById('restart-game').addEventListener('click', initGame)
     // getRandomNumber()
 }
 
@@ -239,4 +246,20 @@ function displayHistory() {
 
     // Step 7.4.7
     document.getElementById('history').innerHTML = list
+}
+
+// Step 8.1
+
+function initGame () {
+    // Step 8.1.1
+    correctNumber = getRandomNumber()
+
+    // Step 8.1.2
+    document.getElementById('result').innerHTML = ''
+
+    // Step 8.1.3
+    guesses = []
+
+    // Step 8.1.4
+    displayHistory()
 }
